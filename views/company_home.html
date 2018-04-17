@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lg="en">
+
+<head>
+	<title>Home | Recruiter</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+	 <script src="jquery-1.11.0.js"></script>
+  	<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet"> 
+  	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet"> 
+  	<script src="jquery-3.2.1.js"></script>
+  	<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" rel="stylesheet">
+		
+		$(function(){
+		    $('[data-toggle="tooltip"]').tooltip();
+		    $(".side-nav .collapse").on("hide.bs.collapse", function() {                   
+			$(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+		    });
+		    $('.side-nav .collapse').on("show.bs.collapse", function() {                        
+			$(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");        
+		    });
+		});    
+		
+		var submit_click = false;
+		var save_click = false;
+		var save_password_click = false;
+		
+		$('document').ready(function(){
+		      $('#feed_form').on('submit', function(e){
+			  e.preventDefault();
+    		          submit_click = true;
+			  $.ajax({
+			    url: '/update_feedback_data',
+			    method: 'POST',
+			    data: $(this).serialize(),
+			    dataType: "json",
+			    success: function() {
+			      alert("Feedback form saved successfully!");
+			    },
+			    error: function(){
+			      alert("Error while saving. Try again!");
+			    }
+			  });
+		      });		    
+		      $('#company_info').on('submit', function(f){
+			  f.preventDefault();
+    		          save_click = true;
+			  $.ajax({
+			    url: '/update_company_info',
+			    method: 'POST',
+			    data: $(this).serialize(),
+			    dataType: "json",
+			    success: function(data) {
+			      alert("Company information saved successfully!");
+			    },
+			    error: function() {
+				alert("Error while saving. Try again!");
+			    }
+
+			  });
+		      });
+		      
+		      $('#change_password').on('submit', function(f){
+			  f.preventDefault();
+    		          save_password_click = true;
+			  $.ajax({
+			    url: '/change_company_password',
+			    method: 'POST',
+			    data: $(this).serialize(),
+			    dataType: "json",
+			    success: function(data) {
+			      alert(data.name);
+			      if(data.name === "New Passwords do not match!") {
+			      		document.getElementById("confirm_new_pass").reset();
+			      }else if(data.name === "Incorrect Current Password!"){
+			      		document.getElementById("current_pass").reset();
+			      }		      
+			    },
+			    error: function() {
+				alert("Error while changing password. Try again!");
+			    }
+
+			  });
+		      });
+		    });
+		
+		function cancel_password_clicked() {
+			document.getElementById("overlay4").style.display = "none";
+			//openChangePassword();
+		}
+		
+		function cancel_feedback_clicked() {
+			document.getElementById("overlay2").style.display = "none";
+			openFeedbackForm();
+		}
+		
+		function openFeedbackForm() {
+			 document.getElementById("overlay2").style.display = "block";
+			 document.getElementById("feed_form").reset();
+		}
+		
+		function closeFeedbackForm() {
+			if(submit_click == false) {
+				if(confirm("Do you want to save the form before quitting?")) {
+					document.getElementById("submit_button").click();
+					alert("Feedback form saved successfully!");
+					document.getElementById("overlay2").style.display = "none";
+				} else {
+					document.getElementById("overlay2").style.display = "none";
+				}
+			}
+			else {
+				document.getElementById("overlay2").style.display = "none";
+			}
+			submit_click = false;
+		}
+		function openCompanyForm() {
+			 document.getElementById("overlay").style.display = "block";
+			 document.getElementById("company_info").reset();
+		}
+		
+		function closeCompanyForm() {
+			if(save_click == false) {
+				if(confirm("Do you want to save the information before quitting?")) {
+					document.getElementById("save_button").click();
+					alert("Information saved successfully!");
+					document.getElementById("overlay").style.display = "none";
+				} else {
+					document.getElementById("overlay").style.display = "none";
+				}
+			}
+			else {
+				document.getElementById("overlay").style.display = "none";
+			}
+			save_click = false;
+		}
+		function openContact() {
+			 document.getElementById("overlay3").style.display = "block";
+		}
+		
+		function closeContact() {
+			 document.getElementById("overlay3").style.display = "none";
+		}
+		
+		function openChangePassword() {
+			document.getElementById("overlay4").style.display = "block";
+			document.getElementById("change_password").reset();
+		}
+		
+		function closeChangePassword() {
+			if(save_password_click == false) {
+				if(confirm("Do you want to save the password before quitting?")) {
+					document.getElementById("save_password_button").click();
+					alert("Password changed successfully!");
+					document.getElementById("overlay4").style.display = "none";
+				} else {
+					document.getElementById("overlay4").style.display = "none";
+				}
+			}
+			else {
+				document.getElementById("overlay4").style.display = "none";
+			}
+			save_password_click = false;
+		}
+    		
+	</script>
+	<style>
+		@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+		@media(min-width:768px) {
+		    	body {
+				margin-top: 50px;
+		    	}
+		}
+
+		#wrapper {
+		    	padding-left: 0;    
+		}
+
+	#page-wrapper {
+	    width: 100%;        
+	    padding: 0;
+	    background-color:#ffe3b7;
+	}
+
+	@media(min-width:768px) {
+	    #wrapper {
+		padding-left: 225px;
+	    }
+
+	    #page-wrapper {
+		padding: 0px;
+	    }
+	}
+	.navbar {
+		background-color: #333;
+	}
+
+	/* Top Navigation */
+
+	.top-nav {
+	    padding: 0 15px;
+	}
+
+	.top-nav>li {
+	    display: inline-block;
+	    float: left;
+	}
+
+	.top-nav>li>a {
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	    line-height: 20px;
+	    color: #fff;
+	}
+
+	.top-nav>li>a:hover,
+	.top-nav>li>a:focus,
+	.top-nav>.open>a,
+	.top-nav>.open>a:hover,
+	.top-nav>.open>a:focus {
+	    color: #fff;
+	    background-color: #1a242f;
+	}
+
+	.top-nav>.open>.dropdown-menu>li>a {
+	    white-space: normal;
+	}
+
+	/* Side Navigation */
+
+	@media(min-width:768px) {
+	    .side-nav {
+		position: fixed;
+		top: 60px;
+		left: 225px;
+		width: 225px;
+		height: 700px;
+		margin-left: -225px;
+		border: none;
+		border-radius: 0;
+		border-top: 1px rgba(0,0,0,.5) solid;
+		background-color: #333;
+		/*background-color: #5A6B7D;*/
+		bottom: 0;
+		overflow-x: hidden;
+		padding-bottom: 40px;
+	    }
+
+	    .side-nav>li>a {
+		width: 225px;
+		border-bottom: 1px rgba(0,0,0,.3) solid;
+		font-family: 'Georgia';
+		font-size:15px;
+		padding: 20px 15px 20px 20px;
+		color: #e3e8ef;
+	    }
+
+	    .side-nav li a:hover,
+	    .side-nav li a:focus {
+		outline: none;
+		background-color: #1a242f !important;
+	    }
+	}
+
+	.side-nav>li>ul {
+	    padding: 0;
+	    border-bottom: 1px rgba(0,0,0,.3) solid;
+	}
+
+	.side-nav>li>ul>li>a {
+	    display: block;
+	    padding: 15px 15px 15px 38px;
+	    text-decoration: none;
+	    /*color: #999;*/
+	    color: #e3e8ef;    
+	}
+
+	.side-nav>li>ul>li>a:hover {
+	    color: #fff;
+	}
+
+	.navbar .nav > li > a > .label {
+	  -webkit-border-radius: 50%;
+	  -moz-border-radius: 50%;
+	  border-radius: 50%;
+	  position: absolute;
+	  top: 14px;
+	  right: 6px;
+	  font-size: 10px;
+	  font-weight: normal;
+	  min-width: 15px;
+	  min-height: 15px;
+	  line-height: 1.0em;
+	  text-align: center;
+	  padding: 2px;
+	}
+
+	.navbar .nav > li > a:hover > .label {
+	  top: 10px;
+	}
+
+	.navbar-brand {
+	    padding: 5px 15px;
+	    height: auto;
+	}
+	.container-fluid h1 {
+		text-align: center;
+		color: #333;
+		padding: 40px 25px 40px 25px;
+		/*font-family: 'Caveat';*/
+		font-weight: bold;
+	}
+	#amaze {
+		background-image: url("/backgrounds/image71.jpg");
+		margin: 0;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: auto;
+		background-position: center;
+		background-size: cover;
+		
+	}
+	#amaze h2 {
+		padding: 40px 30px 10px 30px;
+		font-family: 'Georgia';
+		font-weight: bold;
+		color: #e3e8ef;
+		
+	}
+	.col-sm-6 {
+		padding-bottom: 10px;
+	}
+	.col-sm-6 strong{
+		font-family: 'Georgia';
+		font-weight: bold;
+		color: #333;
+		font-size: 20px;
+	}	
+	.col-sm-6 h1 {
+		
+	}
+	
+	#placement-footer {
+	    	/*font-family: 'Caveat';*/
+	    	font-size: 14px;
+	    	font-weight: bold;
+	    	color: #333;
+	    	background-color: #ffe3b7;
+	    	padding: 10px; 
+	}
+	
+	#counter {
+		padding-top: 30px;
+		padding-bottom: 25px;
+	}
+	
+	.count {
+		  line-height: 100px;
+		  color: #333;
+		  font-size: 64px;
+		  font-weight: bold;
+	}
+	
+	#overlay, #overlay2, #overlay3, #overlay4{
+	    position: fixed;
+	    display: none;
+	    width: 82%;
+	    height: 90%;
+	    float: center;
+	    top: 60px;
+	    background-color: white;
+	    z-index: 2;
+	    cursor: pointer;
+	    border: 2px solid #bec0c4;
+	    overflow-y: auto;
+	}
+	#overlay-heading {
+		background-color: #FFF0B4;
+		margin: 10px 15px 0px 15px;
+	}
+	#overlay-heading h1{
+		padding: 20px;
+	}
+	#feedback_sidebar {
+		position: relative;
+		top: 0px;
+		background-color: #333;
+	}
+	#close {
+		float: right;
+		padding-right: 15px;
+		padding-top: 15px;
+		font-size: 15px;
+		color: #333;
+	}
+	section {
+		display: inline-block;
+	  	vertical-align: top;
+	}
+	.col-1-5 {
+		width: 250px;
+	}
+	.col-4-5 {
+		width: 75%;
+		float: center;
+		padding-right: 10px;
+		padding-top: 10px;
+	}
+	.jumbotron {
+		width: 100%; 
+		border-radius: 8px;
+	}
+	#contact_coep{
+		width: 97%;
+		float: center;
+		margin: 10px 15px 10px 15px;
+	}
+	#record_messages{
+		width: 97%;
+		float: center;
+		margin: 10px 15px 10px 15px;
+		display: none;
+	}
+	#content_left {
+		text-align: right;
+		padding: 30px;
+		border-right: 1px solid black;
+		font-family: 'Georgia';
+	}
+	
+	#content_right1 {
+		text-align: left;
+		padding: 30px;
+		font-family: 'Georgia';
+	}
+	
+	#content_right {
+		padding: 30px 40px 40px 40px;
+	}
+	#content_left strong, #content_right1 strong {
+		line-height: 50px;
+	}
+	
+	h3 {
+		text-align: center;
+	}
+	input, textarea {
+		margin-top: 10px;
+		margin-bottom: 7px;
+		width: 90%;
+	}
+	
+	table {
+		border: 1px solid black;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	td {
+		padding-right: 20px;
+		padding-left: 20px;
+		text-align: center;
+		font-size: 16px;
+		border: 1px solid black;
+	}
+	th {
+		padding: 20px;
+		text-align: center;
+		font-size: 18px;
+		border: 1px solid black;
+	}
+	button {
+		padding: 10px 20px 10px 20px;
+		margin: 20px;
+		text-align: center;
+	}
+	.wrapper {
+		text-align: center;
+	}
+	</style>
+</head>
+
+<body>
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           <a class="navbar-brand" href="#" style="padding: 20px; color: white;">COEP Placements</a>
+        </div>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                   <a href="#" onclick="openFeedbackForm()"><i class="fa fa-pencil" aria-hidden="true"></i>Feedback Form</a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-university" aria-hidden="true"></i> Company Profile <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-1" class="collapse">
+                        <li><a href="/company_profile_for_company"><i class="fa fa-angle-double-right"></i> View</a></li>
+                        <li><a href="#" onclick="openCompanyForm()"><i class="fa fa-angle-double-right"></i> Edit</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="openContact()"><i class="fa fa-fw fa-user-plus"></i> Contact COEP</a>
+                </li> 
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-cog" aria-hidden="true"></i>   Settings <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-2" class="collapse">
+                        <li><a href="#" onclick="openChangePassword()"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
+                    </ul>
+                </li>
+                <li><a href="/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+    <div id="page-wrapper">
+    	<div id = "overlay">
+    		<a href="#" onclick="closeCompanyForm()"><span class="glyphicon glyphicon-remove" id="close"></span></a>
+    		<div class = "container-fluid text-center" id = "overlay-heading">
+    			<h1>Edit Company Profile</h1>
+    		</div>
+    		<form id = "company_info">
+    		<section class="col-1-5">
+    		 <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		</div>
+    		<div class="collapse navbar-collapse navbar-ex1-collapse">
+		    <ul class="nav navbar-nav side-nav" id="feedback_sidebar">
+		        <li>
+		           <a href="#who_am_i"> Who am I?</a>
+		        </li>
+		        <li>
+		            <a href="#more_about_me"> More about me <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+		            <ul>
+		                <li><a href="#criteria"><i class="fa fa-angle-double-right"></i> Criteria</a></li>
+		                <li><a href="#interviews"><i class="fa fa-angle-double-right"></i> Interview Process</a></li>
+		                <li><a href="#package"><i class="fa fa-angle-double-right"></i> Package Details</a></li>
+		                <li><a href="#location"><i class="fa fa-angle-double-right"></i> Job Location</a></li>
+		            </ul>
+		        </li>
+		        <li><a href="#">Change Company Logo</a></li>
+		        <li>
+		            <a href="#">Photo Gallery </a>
+		        </li> 
+		        <li><a href="#students_selected">Selected Students</a></li>
+		    </ul>
+        	</div>
+        	</section>
+        	<section class="col-4-5">
+        		<div class = "jumbotron" id="who_am_i">
+        		<h3>Who Am I?</h3><hr>
+        			<div class="row">
+					<div class="col-sm-6" id="content_left">
+						<strong>Company Name:</strong><br>
+						<strong>Type:</strong><br>
+						<strong>Headquarters:</strong><br>
+						<strong id = "textarea_param">Industry:</strong><br><br><br><br>
+						<strong id = "textarea_param">Services/Products:</strong><br><br><br><br>
+						<strong>Official website link:</strong><br>
+					</div>
+					<div class="col-sm-6" id="content_right">
+						<input type="text" name="company_name" value='<%=company_name%>'><br> 
+        					<input type="text" name="type" value='<%=type%>'><br>  
+        					<input type="text" name="headquarters" value='<%=headquarter%>'><br>
+        					<textarea rows="4" cols="40" name="industry"><%=industry%></textarea><br>
+        					<textarea rows="4" cols="40" name= "services"><%=services%></textarea><br>
+        					<input type="text" name="link" value='<%=link%>'><br>
+					</div>
+        			</div>  			
+        		</div>
+        		<div class = "jumbotron" id="criteria">
+        			<h3>Criteria for Selection</h3><hr>
+        			<div class="row">
+					<div class="col-sm-6" id="content_left">
+						<strong>CGPA Criteria:</strong><br>
+						<strong>Technologies to be known:</strong><br>
+						<strong>Job Profile:</strong><br>
+						<strong>Offers Internship:</strong><br>
+						<strong>Eligible Branches:</strong><br><br><br><br>
+						<strong>Tentative Month for Interviews:</strong><br>
+					</div>
+					<div class="col-sm-6" id="content_right">
+						<input type="text" name="cgpa" value='<%=cgpa%>'><br> 
+        					<input type="text" name="technologies" value='<%=technologies%>'><br>  
+        					<input type="text" name="job_profile" value='<%=job_profile%>'><br>
+        					<input type="text" name="offers_internship" value='<%=offers_internship%>'><br>
+        					<textarea rows="4" cols="40" name="branches"><%=branches%></textarea><br>
+        					<input type="text" name="tentative_mon" value='<%=tentative_month_for_interview%>'><br>
+					</div>
+        			</div>  			
+        		</div>
+        		<div class = "jumbotron" id="interviews">
+        		<h3>Interview Process</h3><hr>
+        			<div class="row">
+					<div class="col-sm-6" id="content_left">
+						<strong>Aptitude Test:</strong><br><br><br><br>
+						<strong>Aptitude Test Timing:</strong><br>
+						<strong>Interview Process Location:</strong><br>
+						<strong>Interview Rounds:</strong><br><br><br><br>
+					</div>
+					<div class="col-sm-6" id="content_right">
+						<textarea rows="4" cols="40" name="aptitude_info"><%=aptitude_test%></textarea><br>
+						<input type="text" name="aptitude_timing" value='<%=aptitude_test_timing%>'><br> 
+        					<input type="text" name="location_of_interview" value='<%=location_of_interview%>'><br>  
+        					<textarea rows="4" cols="40" name="rounds"><%=rounds%></textarea><br>
+					</div>
+        			</div>  			
+        		</div>
+        		<div class = "jumbotron" id="package">
+        		<h3>Package Details</h3><hr>
+        			<div class="row">
+					<div class="col-sm-6" id="content_left">
+						<strong>Full-time Package:</strong><br>
+						<strong>Internship Stipend:</strong><br>
+					</div>
+					<div class="col-sm-6" id="content_right">
+						<input type="text" name="fulltime_package" value='<%=fulltime_package%>'><br> 
+        					<input type="text" name="internship_stipend" value='<%=intern_stipend%>'><br> 
+					</div>
+        			</div>  			
+        		</div>
+        		<div class = "jumbotron" id="location">
+        		<h3>Job Location</h3><hr>
+        			<div class="row">
+					<div class="col-sm-6" id="content_left">
+						<strong>Address:</strong><br><br><br><br>
+						<strong>City:</strong><br>
+					</div>
+					<div class="col-sm-6" id="content_right">
+						<textarea rows="4" cols="40" name="address"><%=address%></textarea><br>
+						<input type="text" name="city" value='<%=city%>'><br> 
+					</div>
+        			</div>  			
+        		</div>
+        		<div class = "jumbotron" id="students_selected">
+        		<h3>Students Selected</h3><hr>
+        			<div class="row">
+					<div class="col-sm-6" id="content_left">
+						<strong>Total number of Interns:</strong><br>
+						<strong>Total number of Fulltime:</strong><br>
+					</div>
+					<div class="col-sm-6" id="content_right">
+						<input type="text" name="no_of_interns" value='<%=no_of_interns%>'><br> 
+        					<input type="text" name="no_of_fulltime" value='<%=no_of_fulltime%>'><br> 
+					</div>
+        			</div>  			
+        		</div>
+        	</section>
+        	<div class="wrapper">
+		    	<button id = "save_button" type = "submit">Save</button>
+		    	<button id =  "cancel_button" type="reset">Reset</button>
+		</div>
+		</form>
+	</div>
+	<div id = "overlay2">
+    		<a href="#" onclick="closeFeedbackForm()"><span class="glyphicon glyphicon-remove" id="close"></span></a>
+    		<div class = "container-fluid text-center" id = "overlay-heading">
+    			<h1>Feedback Form</h1>
+    		</div>
+	    	<div class = "container" id = "feedback_form">
+	    		<div class="container-fluid">
+	    			<h3>Office of Training and Placement, College of Engineering, Pune-411005</h3><hr>
+	    			<p>Respected Sir/Madam,</p><br>
+	    			<p>Please provide your valuable feedback in order to enhance the educational quality of out institute.</p>
+	    		</div>
+	    		<form id = "feed_form">
+	    		<div class="jumbotron text-center" style="width:90%;margin:40px;">
+	    			<p><u>Name of Company:</u></p>
+	    			<input type="text" style="width:80%;" name="comp_name" value='<%=company_name%>'> 
+	    			<p><u>Name of Company Representative:</u></p>
+	    			<input type="text" style="width:80%;" id="name_of_comp_representative" name="name_of_comp_representative">
+	    		</div>
+	    		<div class="jumbotron text-center" style="width:90%;margin:40px;">
+		    		<p><u>Please rate the performance of students on the scale 1 to 5.</u></p><br>
+		    		<strong>(1-Excellent, 2-Very Good, 3-Good, 4-Average, 5-Poor)</strong>
+		    		<table>
+		    			<tr>
+		    				<th>Sr.No.</th>
+		    				<th>Description</th>
+		    				<th>Feedback(Rating)</th>
+		    			</tr>
+		    			<tr>
+		    				<td>1.</td>
+		    				<td>Apply Engineering fundamentals and technical skills effectively</td>
+		    				<td><input type="text" id="apply_engg_fund" name="apply_engg_fund"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>2.</td>
+		    				<td>Demonstrate professional ethics</td>
+		    				<td><input type="text" id="professional_ethics" name="professional_ethics"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>3.</td>
+		    				<td>Demonstrate effective communication skills</td>
+		    				<td><input type="text" id="comm_skills" name="comm_skills"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>4.</td>
+		    				<td>Knowledge of contemporary issues</td>
+		    				<td><input type="text" id="know_of_contem_issues" name="know_of_contem_issues"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>5.</td>
+		    				<td>Logical and Quantitative Ability</td>
+		    				<td><input type="text" id="logical_quant_ability" name="logical_quant_ability"></td>
+		    			</tr>
+		    		</table>
+	    		</div>
+	    		<div class="jumbotron text-center" style="width:90%;margin:40px;">
+		    		<p><u>Please rate COEP Facilities on the scale 1 to 5.</u></p><br>
+		    		<strong>(1-Excellent, 2-Very Good, 3-Good, 4-Average, 5-Poor)</strong>
+		    		<table>
+		    			<tr>
+		    				<th>Sr.No.</th>
+		    				<th>Description</th>
+		    				<th>Feedback(Rating)</th>
+		    			</tr>
+		    			<tr>
+		    				<td>1.</td>
+		    				<td>Infrastructure</td>
+		    				<td><input type="text" id="infra" name="infra"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>2.</td>
+		    				<td>Time Management of the Event</td>
+		    				<td><input type="text" id="time_management" name="time_management"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>3.</td>
+		    				<td>Value Addition</td>
+		    				<td><input type="text" id="value_addition" name="value_addition"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>4.</td>
+		    				<td>Support of Volunteers/ Placement Cell</td>
+		    				<td><input type="text" id="support" name="support"></td>
+		    			</tr>
+		    			<tr>
+		    				<td>5.</td>
+		    				<td>Hospitality</td>
+		    				<td><input type="text" id="hospitality" name="hospitality"></td>
+		    			</tr>
+		    		</table>
+	    		</div>
+	    		<div class="jumbotron text-center" style="width:90%;margin:40px;">
+		    		<p><u>Your candid feedback on the overall quality of students with respect to the following skill sets</u></p><br>
+		    		<table>
+		    			<tr>
+		    				<th>Sr.No.</th>
+		    				<th>Description</th>
+		    				<th>Feedback</th>
+		    			</tr>
+		    			<tr>
+		    				<td>1.</td>
+		    				<td>Verbal</td>
+		    				<td><textarea rows="4" cols="40" id="verbal" name="verbal"></textarea></td>
+		    			</tr>
+		    			<tr>
+		    				<td>2.</td>
+		    				<td>Analytical</td>
+		    				<td><textarea rows="4" cols="40" id="analytical" name="analytical"></textarea></td>
+		    			</tr>
+		    			<tr>
+		    				<td>3.</td>
+		    				<td>Intrapersonal(Team Work)</td>
+		    				<td><textarea rows="4" cols="40" id="intrapersonal" name="intrapersonal"></textarea></td>
+		    			</tr>
+		    			<tr>
+		    				<td>4.</td>
+		    				<td>Interpersonal(Confidence and Positive Attitude)</td>
+		    				<td><textarea rows="4" cols="40" id="interpersonal" name="interpersonal"></textarea></td>
+		    			</tr>
+		    			<tr>
+		    				<td>5.</td>
+		    				<td>Technical knowledge of subject</td>
+		    				<td><textarea rows="4" cols="40" id="tech_knowledge" name="tech_knowledge"></textarea></td>
+		    			</tr>
+		    		</table>
+	    		</div>
+	    		<div class="jumbotron text-center" style="width:90%;margin:40px;">
+		    		<p><u>Your suggestion for further improvement</u></p><br>
+		    		<textarea rows="7" cols="80" id="suggestion" name="suggestion"></textarea>
+	    		</div>
+	    		<div class="wrapper">
+		    		<button id = "submit_button" type = "submit" onclick="submit_clicked()">Submit Feedback Form</button>
+		    		<button id =  "cancel_button" type="reset" >Reset</button>
+		    	</div>
+		    	</form>
+	    	</div>
+	</div>
+	<div id = "overlay3">
+    		<a href="#" onclick="closeContact()"><span class="glyphicon glyphicon-remove" id="close"></span></a>
+    		<div class = "container-fluid text-center" id = "overlay-heading">
+    			<h1>Contact COEP At...</h1>
+    		</div>
+    		<div class="jumbotron" id="contact_coep">
+    			<div class="row">
+				<div class="col-sm-6" id="content_left">
+					<strong>E-mail Address:</strong><br>
+					<strong>Contact Number:</strong><br>
+					<strong>Address:</strong><br>
+				</div>
+				<div class="col-sm-6" id="content_right1">
+					<strong>placement@coep.ac.in</strong><br>
+					<strong>020-2550 7022/  7023</strong><br>
+					<strong>'Training and Placement Cell' beside Main Building and Alumni Office</strong><br>
+				</div>
+        		</div>  
+    		</div>
+    	</div>
+    	<div id = "overlay4">
+    		<a href="#" onclick="closeChangePassword()"><span class="glyphicon glyphicon-remove" id="close"></span></a>
+    		<div class = "container-fluid text-center" id = "overlay-heading">
+    			<h1>Change Password Settings</h1>
+    		</div>
+    		<div class="jumbotron" id="record_messages">
+    			<p id="record"></p>
+    		</div>
+    		<div class="jumbotron" id="contact_coep">
+    			<form id="change_password">
+	    			<div class="row">
+					<div class="col-sm-6" id="content_left">
+						<strong>Current Password:</strong><br>
+						<strong>New Password:</strong><br>
+						<strong>Confirm New Password:</strong><br>
+					</div>
+					<div class="col-sm-6" id="content_right">
+						<input type="password" id="current_pass" name="current_pass"><br> 
+						<input type="password" id="new_pass" name="new_pass"><br> 
+						<input type="password" id="confirm_new_pass" name="confirm_new_pass"><br>
+					</div>
+				</div>  
+				<div class="wrapper">
+	    				<button id="save_password_button" type="submit">Save Password</button>
+	    				<button id="cancel_password_button" type="reset">Cancel</button>
+	    			</div>
+	    		</form>
+    		</div>
+    	</div>
+        <div class="container-fluid">
+                    <h1>Welcome <%=company_name%>!</h1>
+        </div>
+         <div class="container-fluid" id="amaze">
+                   <h2>Thank You For Amazing Placements</h2>
+         	<div class="row">
+         		<div class="col-sm-6 text-center">
+         			<div id="counter"><span class="count"><%=no_of_interns%></span></div>
+         			<strong>No of Interns</strong>
+         		</div>
+         	</div>
+         	
+         	<div class="row">
+         		<div class="col-sm-6 text-center">
+         			<div id="counter"><span class="count"><%=no_of_fulltime%></span></div>
+         			<strong>No of Full-time Employees</strong>
+         		</div>
+         	</div>
+         	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+         	<script type="text/javascript" rel="stylesheet">
+		 	$('.count').each(function () {
+			    $(this).prop('Counter',0).animate({
+				Counter: $(this).text()
+			    }, {
+				duration: 1000,
+				easing: 'swing',
+				step: function (now) {
+				    $(this).text(Math.ceil(now));
+				}
+			    });
+			});
+         	</script>
+        </div>
+        
+        
+    </div>
+    <footer class="container-fluid text-center" id = "placement-footer">
+	<p>@ 2017 COEP. All Rights Reserved. Site Developed By COEP Webteam.</p>
+    </footer>
+</div>
+
+</body> 
+</html>

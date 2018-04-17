@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Company Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet"> 
+  <script type="text/javascript" src="jquery-3.2.1.js"></script>
+  <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script type = "text/javascript">
+  	$(document).ready(function() {
+	    $('#PhotoCarousel').carousel({
+		    interval: 10000
+		})
+	});
+	
+	$(window).scroll(function() {
+		  $(".slideanim").each(function(){
+		    var pos = $(this).offset().top;
+
+		    var winTop = $(window).scrollTop();
+		    if (pos < winTop + 600) {
+		      $(this).addClass("slide");
+		    }
+		  });
+	}); 
+  </script>
+  <style>
+  
+  .slideanim {visibility:hidden;}
+  .slide {
+	    /* The name of the animation */
+	    animation-name: slide;
+	    -webkit-animation-name: slide;
+	    /* The duration of the animation */
+	    animation-duration: 1s;
+	    -webkit-animation-duration: 1s;
+	    /* Make the element visible */
+	    visibility: visible;
+	}
+
+	/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+	@keyframes slide {
+	    0% {
+		opacity: 0;
+		transform: translateY(70%);
+	    }
+	    100% {
+		opacity: 1;
+		transform: translateY(0%);
+	    }
+	}
+	@-webkit-keyframes slide {
+	    0% {
+		opacity: 0;
+		-webkit-transform: translateY(70%);
+	    }
+	    100% {
+		opacity: 1;
+		-webkit-transform: translateY(0%);
+	    }
+	}
+  .jumbotron {
+  	background-color: white;
+  }
+ 
+  footer {
+      background-color: #302e2e; 
+      padding: 15px;
+      color: #d3cdcd;
+  }
+   #placement-footer {
+    	/*font-family: 'Caveat';
+    	font-size: 1.5em;*/
+    	font-size: 14px;
+    	font-weight: bold;
+    	text-align: center;
+    }
+  p {
+  	font-size: 20px;
+  	/*font-family: 'Caveat';*/
+  	padding-left: 70px;
+  	padding-right: 70px;
+  	text-align: left;
+  }
+  h1 {
+  	padding-top: 15px;
+  	font-weight: bold;
+  	font-family: 'Georgia';
+  	font-size: 40px;
+  }
+  .bg-1 {
+      background-image: url("company_profile.jpg");
+      background-color: #ee6e73;
+      background-repeat: no-repeat;
+      background-size: 100%; 
+      color: #333;
+      margin: 0px;
+  }
+  .bg-2 { 
+      background-color: #302e2e;
+      color: #d3cdcd;
+      margin: 0px;
+  }
+  .container {
+      padding-top: 40px;
+      padding-bottom: 120px;
+      width:100%;
+      border-radius: 0px;
+  }
+  .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      position: fixed;
+      top: 0px;
+      width: 100%;
+      z-index: 9999;
+   }
+   #navigation {
+      background-color: #302e2e;
+   }
+   #main-navigation {
+      font-weight: bold;
+      font-size: 1.2em;
+   }
+  #container1 {
+  	margin: 0px;
+  }
+  .margin {
+  	margin-bottom: 50px;
+  }
+  .img-circle {
+  	border: 12px solid #333;
+  }
+  .panel {
+    border: 1px solid #ee6e73;
+    border-radius:10;
+    transition: box-shadow 0.5s;
+    height: 600px;
+  }
+
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+   }
+
+  .panel-heading {
+    color: #fff !important;
+    background-color: #ee6e73 !important;
+    padding: 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel p {
+  	text-align: center;
+  }
+  .panel-body p{
+  	text-align: left;
+  	padding-left: 20px;
+  	padding-right: 20px;
+  	font-weight: normal;
+  }
+  
+  .panel-heading p {
+  	font-size: 25px;
+  	font-weight: bold;
+  }
+  
+  .carousel {
+    margin-bottom: 0;
+	padding: 0 40px 30px 40px;
+}
+/* Reposition the controls slightly */
+.carousel-control {
+	left: -12px;
+}
+.carousel-control.right {
+	right: -12px;
+}
+/* Changes the position of the indicators */
+.carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: 0px;
+	margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.carousel-indicators li {
+	background: #c0c0c0;
+}
+.carousel-indicators .active {
+	background: #333333;
+}
+
+#photoGallery {
+	background-color: #302e2e;
+}
+
+#photoGalleryId {
+	color: #d3cdcd;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+ #view-more-btn {
+    	float: right;
+    	padding-right: 100px;
+ }
+ 
+ #total-selected-candidates {
+ 	/*font-size: 2em;
+  	font-family: 'Caveat';*/
+  	font-size: 20px;
+  	padding-left: 70px;
+  	padding-right: 70px;
+  	text-align: left;
+ }
+ body{
+   margin-top:50px;
+ }
+ @media(max-width: 768px){
+   body{
+     margin-top:180px;
+    }
+ }
+
+ </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-inverse" id = "navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Placement Cell</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" id = "main-navigation">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/#rules_and_regulations">Rules and Regulations</a></li>
+        <li class="active"><a href="/company_list">Company Profile</a></li>
+        <li><a href="/#contact-us">Contact us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class = "container bg-1 text-center">
+	<h1 class = "margin"><%=company_name %></h1>
+	<img  src = '<%=logo_link%>' class = "img-circle" width = 300px height = 300px>
+</div>
+<div class = "container bg-2 text-center slideanim">
+	<h1>Who am I?</h1>
+	<p><strong>Type : </strong><%=type_of_company %></p><br>
+	<p><strong>Headquarters : </strong><%=headquarters %></p><br>
+	<p><strong>Industry : </strong><%=industry %></p><br>
+	<p><strong>Products/Services : </strong><%=services %></p><br>
+	<a class = "btn btn-default btn-lg" href= '<%=link %>' target="_blank">View Company Website</a>
+</div>
+<div class="container-fluid text-center slideanim">    
+  <h1 class="margin">More About Me</h1><br>
+  <div class="row">
+    <div class="col-sm-4">
+    	<div class = "panel panel-default text-center">
+    		<div class = "panel-heading">
+    			<p>Criteria</p>
+    		</div>
+   		<div class = "panel-body">
+   			<p><strong>CGPA Criteria: </strong>>= <%=cgpa %></p><br>
+   			<p><strong>Technologies to be known: </strong><%=technologies %></p><br>
+   			<p><strong>Job Profile: </strong><%=job_profile %></p><br>
+   			<p><strong>Offers Internship? </strong><%=offers_internship %></p><br>
+   			<p><strong>Eligible Branches: </strong><%=eligible_branches%></p><br>
+   			<p><strong>Tentative month for Interviews: </strong><%=tentative_month%></p>
+   		</div>
+    	</div>
+    </div>
+    <div class="col-sm-4"> 
+    	<div class = "panel panel-default text-center">
+    		<div class = "panel-heading">
+    			<p>Interview Process</p>
+    		</div>
+   		<div class = "panel-body">
+   			<p><strong>Aptitude test: </strong><%=aptitude_test_info %></p><br>
+   			<p><strong>Aptitude test timing: </strong><%=aptitude_test_timing %></p><br>
+   			<p><strong>Interview Process Location: </strong><%=interview_location %></p><br>
+   			<p><strong>Interview Rounds: </strong><%=interview_rounds %></p><br>
+   		</div>
+    	</div>
+    </div>
+    <div class="col-sm-4"> 
+	<div class = "panel panel-default text-center">
+	    	<div class = "panel-heading">
+	    		<p>Package</p>
+	  	</div>
+	   	<div class = "panel-body">
+	   		<p><strong>Full-time package : </strong><br>  <%=fulltime_package %> per annum</p><br>
+	   		<p><strong>Internship Stipend : </strong><br> <%=internship_stipend %> Rs per month</p><br>
+	   	</div>
+	   	<div class = "panel-heading">
+    			<p>Job Location</p>
+    		</div>
+   		<div class = "panel-body">
+   			<p><span class = "glyphicon glyphicon-map-marker" aria-hidden = "true"></span> <strong><%=job_location%><strong></p>
+   		</div>
+	</div>
+   </div>
+  </div>
+</div>
+
+<div class="container slideanim" id = "photoGallery">
+	<h1 id = "photoGalleryId">Photo Gallery</h1>
+	<div class="row">
+		<div class="col-sm-12">
+    	    <div class="well"> 
+                <div id="PhotoCarousel" class="carousel slide">
+                 
+                <ol class="carousel-indicators">
+                    <li data-target="#PhotoCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#PhotoCarousel" data-slide-to="1"></li>
+                    <li data-target="#PhotoCarousel" data-slide-to="2"></li>
+                </ol>
+                 
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    
+                <div class="item active">
+                	<div class="row-fluid">
+                	  <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                	</div><!--/row-fluid-->
+                </div><!--/item-->
+                 
+                <div class="item">
+                	<div class="row-fluid">
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                	</div><!--/row-fluid-->
+                </div><!--/item-->
+                 
+                <div class="item">
+                	<div class="row-fluid">
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                		<div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
+                	</div><!--/row-fluid-->
+                </div><!--/item-->
+                 
+                </div><!--/carousel-inner-->
+                 
+		         <a class="left carousel-control" href="#PhotoCarousel" role="button" data-slide="prev">
+			 	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			 </a>
+			 <a class="right carousel-control" href="#PhotoCarousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+		         </a> 
+                </div><!--/well-->   
+		</div>
+	</div>
+</div>
+</div>
+
+	<div class = "container-fluid text-center slideanim">
+		<h1 class="margin">Previous Year Selected Students...</h1><br>
+	<p id = "total-selected-candidates"><strong>Total Students selected for Full-time Programme: </strong><%=no_of_fulltime%></p><br>
+	<p id = "total-selected-candidates"><strong>Total Students selected for Internship Programme: </strong><%=no_of_interns%></p><br>
+	<div id = "view-more-btn">
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">View Selected Students</button>
+  	</div>
+  	<br>
+  	<br>
+  	<div id="demo" class="collapse">
+		  <div class="col-sm-6">
+		    	<div class = "panel panel-default text-center">
+		    		<div class = "panel-heading">
+		    			<p>Full-time Candidates</p>
+		    		</div>
+		   		<div class = "panel-body">
+		   			<% fulltime.forEach((post) => { %>
+						<p><strong><%=post.student_name%> </strong>(<%=post.branch_name%>)</p><br>
+    					<% }) %>
+		   		</div>
+		    	</div>
+		    </div>
+		    <div class="col-sm-6"> 
+		    	<div class = "panel panel-default text-center">
+		    		<div class = "panel-heading">
+		    			<p>Internship Candidates</p>
+		    		</div>
+		   		<div class = "panel-body">
+		   			<% posts.forEach((post) => { %>
+						<p><strong><%=post.student_name%> </strong>(<%=post.branch_name%>)</p><br>
+    					<% }) %>
+		   		</div>
+		    	</div>
+		    </div>	
+		</div>
+	<h5>Note that only previous one year records are maintained.</h5>
+</div>
+<footer class="container-fluid text-center">
+  <p id = "placement-footer">@ 2017 COEP. All Rights Reserved. Site Developed By COEP Webteam.</p>
+</footer>
+
+</body>
+</html>
+

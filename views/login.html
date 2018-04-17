@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<title>Sign Up</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+	<link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+	<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<script src="/jquery-1.11.0.js"></script>
+	<script src="jquery-3.2.1.js" rel="stylesheet"></script>
+	<script type="text/javascript" rel="stylesheet">
+		/*$(document).ready(function(){
+		      $("#form").submit(function(e){
+			  //e.preventDefault();
+    		          //submit_click = true;
+    		          var e = document.getElementById("username");
+    		          var username = e.options[e.selectedIndex].text;
+    		          var password_value = document.getElementById('password').value;
+       		          var send_data = {password: password_value, name: username};
+			  $.ajax({
+			    url: '/company_home',
+			    method: 'POST',
+			    data: $(this).serialize(),
+			    //dataType: "json",
+			    success: function() {
+			    	/*if(data.msg === "Incorrect Password") {
+			    		document.getElementById("demo").innerHTML = "Incorrect Password!";
+			    	} else if(data.msg === "Incorrect Username") {
+			    		document.getElementById("demo").innerHTML = "Incorrect Username!";
+			    	}else if(data.msg === "Correct Password") {
+			    		if(data.category === "Admin") {
+			    			window.location.replace("/admin_home");
+			    		}else if(data.category === "Company") {
+		    				var username = "Company";
+		    				alert("done");
+		    				var password_value = document.getElementById("password").value;
+       		       				var send_data = {password: password_value, name: username};
+		    				$.post('/company_home', send_data);	
+			    		}
+			    	}
+			    },
+			    error: function(){
+			      alert("Cannot Login. Please try again!");
+			      document.getElementById("form").reset();
+			    }
+			  });
+		      });		    
+		    });*/
+	</script>
+	<style>
+		@import "bourbon";
+		
+		.navbar {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
+		
+		#navigation {
+		    	background-color: #302e2e;
+		}
+		
+		#main-navigation {
+		    	font-weight: bold;
+		    	font-size: 1.2em;
+		}
+		
+		body {
+			
+		}
+		
+		h2 {
+			text-align: center;
+		}
+		
+		.container {
+			width: 100%;
+			background: #ffe3b7 !important;	
+		}
+		
+		.wrapper {	
+			margin-top: 150px;
+			margin-bottom: 150px;
+		}
+
+		.form-signin {
+		  	max-width: 380px;
+		 	padding: 15px 35px 45px;
+		  	margin: 0 auto;
+		  	color: #333;
+		  	background-color: #fff;
+		  	border: 1px solid rgba(0,0,0,0.1);  
+
+			.form-signin-heading,.checkbox {
+				margin-bottom: 100px;
+			}
+
+			.checkbox {
+				font-weight: normal;
+			}
+
+			.form-control {
+				position: relative;
+				font-size: 16px;
+				height: auto;
+				padding: 10px;
+				@include box-sizing(border-box);
+
+				&:focus {
+					z-index: 2;
+				}
+			}
+
+			input[type="text"] {
+				margin-bottom: -1px;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+		 	input[type="password"] {
+				  margin-bottom: 20px;
+				  border-top-left-radius: 0;
+				  border-top-right-radius: 0;
+			}
+			select {
+				margin-bottom: -1px;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+		}
+		
+		footer {
+		      	background-color: #302e2e;
+		      	padding: 15px;
+		      	color: #d3cdcd;
+    		}
+    
+		#placement-footer {
+		    	/*font-family: 'Caveat';
+		    	font-size: 1.5em;*/
+		    	font-size: 14px;
+		    	font-weight: bold;
+    		}
+    		
+    		/*select {
+    			width: 310px;
+    			border: 1px solid #ccc;
+			border-radius: 4px;
+			color: #555;
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			height: 34px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			background-color: white;
+    		}*/
+    		option {
+    			padding: 7px;
+    		}
+    		#demo {
+    			color: red;
+    		}
+    		
+	</style>
+	
+</head>
+	  
+<body>
+	<nav class="navbar navbar-inverse" id = "navigation">
+		<div class="container-fluid">
+	    		<div class="navbar-header">
+	      			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+	      			</button>
+	      			<a class="navbar-brand" href="#">Placement Cell</a>
+	    		</div>
+	    		<div class="collapse navbar-collapse" id="myNavbar">
+	      			<ul class="nav navbar-nav" id = "main-navigation">
+					<li><a href="/">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="/#rules_and_regulations">Rules and Regulations</a></li>
+					<li><a href="/company_list">Company Profile</a></li>
+					<li><a href="/#contact-us">Contact us</a></li>
+	     			</ul>
+	     		 	<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      			</ul>
+	    		</div>
+	  	</div>
+	</nav>
+
+	<div class = "container">
+		<div class="wrapper">
+			<form class="form-signin" id = "form" action="/authenticate" method="POST">       
+		      		<h2 class="form-signin-heading">Please login</h2>
+		      		<strong>Username</strong>
+		      		<select class="form-control" id = "username" name="username" required="">
+		      			<option value = "admin" active = "true">Admin</option>
+		      			<option value = "company">Company</option>
+		      		</select>	
+		      		
+		      		<strong>Password</strong><input type="password" class="form-control" id="password" name="password" placeholder="Password" required=""/>      
+		      		<p id = "demo"><%=msg%></p> 
+		      		<label class="checkbox">
+					<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+		     		</label>
+	      			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>  
+	    		</form>
+	  	</div>
+	</div>
+</body>
+
+<footer class="container-fluid text-center">
+	<p id = "placement-footer">@ 2017 COEP. All Rights Reserved. Site Developed By COEP Webteam.</p>
+</footer>
+
+</html>

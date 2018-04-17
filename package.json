@@ -1,0 +1,20 @@
+{
+  "name": "placementcell",
+  "version": "1.0.0",
+  "description": "It is a website which provides information regarding the placement activities that take place for Btech and Mtech in College of Engineering, Pune (COEP).",
+  "main": "index.js",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.1",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yashashree Kolhe",
+  "license": "ISC"
+}

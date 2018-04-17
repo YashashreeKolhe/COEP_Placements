@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to COEP Placements</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet"> 
+  <script src="jquery-3.2.1.js"></script>
+  <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script type = "text/javascript">
+  	$(window).scroll(function() {
+		  $(".slideanim").each(function(){
+		    var pos = $(this).offset().top;
+
+		    var winTop = $(window).scrollTop();
+		    if (pos < winTop + 600) {
+		      $(this).addClass("slide");
+		    }
+		  });
+	});
+  </script>
+  <style>
+  /* dancing-script-regular - latin */
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/dancing-script-v9-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Dancing Script Regular'), local('DancingScript-Regular'),
+       url('fonts/dancing-script-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/dancing-script-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/dancing-script-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/dancing-script-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/dancing-script-v9-latin-regular.svg#DancingScript') format('svg'); /* Legacy iOS */
+}
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    #navigation {
+    	background-color: #302e2e;
+    }
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #302e2e;
+      padding: 15px;
+      color: #d3cdcd;
+    }
+    #placement-title {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	margin: 0px;
+    	margin-top: 15px;
+    	padding-top: 15px;
+    }
+    #placement-title-2 {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	color: #d3cdcd;
+    	margin: 0px;
+    }
+    #placement-title-3 {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	color: #333;
+    	margin: 0px;
+    }
+    #placement-logo {
+    	/*font-family: 'Caveat';
+    	font-size: 2em;*/
+    	font-weight: bold;
+    }
+    #placement-footer {
+    	/*font-family: 'Caveat';
+    	font-size: 1.5em;*/
+    	font-size: 14px;
+    	font-weight: bold;
+    }
+    #header {
+    	background-color: #ffe3b7;
+    	margin-bottom: 0px;
+    	margin-top: 0px;
+    }
+    #main-navigation {
+    	font-weight: bold;
+    	font-size: 1.2em;
+    }
+    #company-logos 
+    {
+    	height:200px;
+	width:270px;
+    }
+    #company-logos img,.item img
+    {
+	max-width:100%; 
+	max-height:100%;
+	min-height: 100%;
+	min-width: 100%;
+	object-fit: fill;
+    }
+    
+    #rules_and_regulations {
+    	margin: 0px;
+    	background-color: #302e2e/*#206d61*/;
+    }
+    
+    #rules_and_regulations p, #rules_and_regulations ol li{
+    	color: #d3cdcd;
+    	/*font-family: 'Caveat';
+    	font-size: 2em;*/
+    	padding: 10px 50px 10px 50px;
+    }
+    
+    #rules_and_regulations li{
+    	color: #d3cdcd;
+    	/*font-family: 'Caveat';*/
+    	font-size: 18px;
+    	padding: 10px 50px 10px 50px;
+    }
+    
+     #rules_and_regulations strong{
+    	color: #d3cdcd;
+    	font-family: 'Georgia';
+    	font-size: 1.5em;
+    	padding: 15px 50px 15px 50px;
+    	
+    }
+    
+    h3 {
+    	color: #d3cdcd;
+    }
+    
+    hr {
+    	color: #333;
+    }
+    
+    #logo {
+    	margin: 0px;
+    	background-color: #302e2e/*#206d61*/;
+    }
+    
+    #logo p {
+    	color: #d3cdcd;
+    	/*font-family: 'Caveat';*/
+    	font-size: 20px;
+    	padding: 10px 50px 10px 50px;
+    }
+    .progress {
+    	width:70%; 
+    	color: #302e2e; 
+    }
+    #statistics {
+    	padding-left: 30px;
+    }
+    #placement-incharge {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	color: #d3cdcd;
+    }
+    #contact-us {
+    	background-color:#ffe3b7;
+    	margin-bottom: 0px;
+    	margin-top: 0px;
+    }
+    #contact {
+    	/*font-family: 'Caveat';*/
+    	font-weight: bold;
+    	/*font-size: 2em;*/
+    	color:  #333;
+    	padding: 0px 50px 0px 50px;
+    }
+    #intermediate-font {
+    	color:  #333;
+    	/*font-family: 'Caveat';
+    	font-size: 2em;*/
+    	padding: 0px 50px 0px 50px;
+    }
+    #view-more-btn, #view-more-btn2 {
+    	float: right;
+    	padding-right: 100px;
+    }
+    .item {
+    	height: 350px;
+    }
+    .slideanim {visibility:hidden;}
+	.slide {
+	    /* The name of the animation */
+	    animation-name: slide;
+	    -webkit-animation-name: slide;
+	    /* The duration of the animation */
+	    animation-duration: 1s;
+	    -webkit-animation-duration: 1s;
+	    /* Make the element visible */
+	    visibility: visible;
+	}
+
+	/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+	@keyframes slide {
+	    0% {
+		opacity: 0;
+		transform: translateY(70%);
+	    }
+	    100% {
+		opacity: 1;
+		transform: translateY(0%);
+	    }
+	}
+	@-webkit-keyframes slide {
+	    0% {
+		opacity: 0;
+		-webkit-transform: translateY(70%);
+	    }
+	    100% {
+		opacity: 1;
+		-webkit-transform: translateY(0%);
+	    }
+	}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" id = "navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Placement Cell</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" id = "main-navigation">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#rules_and_regulations">Rules and Regulations</a></li>
+        <li><a href="/company_list">Company Profile</a></li>
+        <li><a href="#contact-us">Contact us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login_intermediate"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron" id = "header">
+  <div class="container text-center">
+    <!--<img src="backgrounds/logo.png" style="width: 150px; height: 150px">-->
+    <h1 id = "placement-title">Campus Placements</h1>
+    <hr>     
+    <p id = "placement-logo">We offer best for you...</p>
+  </div>
+</div>
+
+<div class = "jumbotron" id = "logo">
+	<div class = "container-fluid text-center">
+		<h2 id = "placement-title-2">From the desk of Training and Placement Office...</h2><br>
+	</div>
+	<p>With a Vision To be a leader amongst engineering institutions in India, constantly pursuing excellence, and offering world class education with values and a mission, to pursue excellence in all facets of institute functioning, COEP has from its inception, made more than its share of contribution to the state and nation. The achievements of our alumni having made their mark in all walks of life the world over are a testament of our commitment to the vision and mission of the Institute. Boasting of the lead Institute in TEQIP and equally passionate faculty in the state, drawing the brightest young minds and powered by world class facilities, COEP creates an environment that is competitively intense and learning wise satisfying .The exposure provided at COEP trains not just for technological superiority , but also for overall understanding of the world suitably shaping global careers for our students in the rapid changing arena.</p>
+	<div id = "view-more-btn">
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#more">View more</button>
+  	</div>
+  	<br><br>	
+  	<div id="more" class="collapse">
+		<p>	I am taking this opportunity to invite you for the recruitment of this year’s batch. There are a large number of organizations with which we have enjoyed lasting and fruitful relationship. These have been visiting the Campus year after year for recruiting the fresh talents. This year too we would like to see you on Campus. Do come to our Campus and test out our raw young talents with a wide range of specializations at all levels.</p>
+		<p>	For details please visit www.coep.org.in Feel free to contact the undersigned at placement@coep.ac.in for clarifications. Looking forward to seeing you on COEP Campus.</p>
+	 </div>
+	<p id = "placement-incharge" class="slideanim">Dr. Uttam Chaskar.</p>
+	<p class="slideanim">Training and Placement Incharge.<br>
+	College of Engineering, Pune</p><br>
+</div>
+  
+<div class = "jumbotron" id = "header">
+	<div class = "container-fluid text-center">
+		<h2 id = "placement-title-3" class = "slideanim">Placement Statistics for Academic Year 2016</h2><br>
+	</div>
+	<div class = "row slideanim" id = "statistics">
+		<div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Computer Science</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	        <div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Information Technology</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	</div>
+	<div class = "row slideanim" id = "statistics">
+		<div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Electronics and Telecommunication</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	        <div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Electrical Engineering</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	</div>
+	<div class = "row slideanim" id = "statistics">
+		<div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Instrumentation and Control</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	        <div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Mechanical Engineering</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	</div>
+	<div class = "row slideanim" id = "statistics">
+		<div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Metallurgical Engineering</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	        <div class= "col-sm-6">
+			<p id = "intermediate-font" style = "padding: 0px">Production Engineering</p>
+			<div class="progress">
+		  		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  		aria-valuemin="0" aria-valuemax="100" style="width:70%">70%
+		  		</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class = "jumbotron" id = "rules_and_regulations">
+	<div class = "container-fluid text-center">
+		<h2 id = "placement-title-2" class="slideanim">Rules and Regulations</h2><br><hr>
+	</div>
+	
+	<p>The policy is subject to change at a later stage on the discretion of the body comprising of Dean (S.A), Dean (Q.A), Dean (Academic) & T.P.O. The changes made, if any at a later stage will be notified.</p>
+	<ol>
+    		<li>The role of the Training and Placement Cell is of a facilitator and councilor for placement related activities. Training and Placement cell does not guarantee a job.</li>
+    		<li>Registration for Campus Recruitment will be done by the respective T&P Secretary only and the students should not submit their soft CV directly to the T&P Cell. The soft CV’s should come through the respective T&P secretary only.</li>
+    		<li>The placement facility is available to all the students registered with Training & Placement Cellthrough ONE JOB TO ONE STUDENT AT THE FIRST INSTANCE.</li>
+    		<li>Those students, who do not wish to participate for any recruitment process, must inform the T&P office in advance, so as to give opportunity to other students.</li>
+    	</ol>
+	<strong><span class="glyphicon glyphicon-warning-sign"></span>  <u>Conduct of students during the Placements/Recruitment Programme:</u></strong><br><br>
+	<ol>
+		<li> A nice ambience should be maintained by the students during the Placements/Recruitment programme. Any behavior bringing disgrace to the Institute will not be tolerated and strict action will be taken against such students. Students should follow professional etiquettes. If found guilty such students will be disqualified from further placement activity.</li>
+		
+    		<li>College uniform is mandatory for students to be present in the Campus Recruitment Programme, failing which students will not be allowed to seat for campus interview.</li>
+
+	     	<li>Students must keep their Identity Card (RFID) with them at the time of PPT/Test/Group Discussion/ Interviews, and produce http://essayonlinewriter.com/essay-writing/ the same when demanded by the visiting team or their representatives</li>
+
+       		<li>For pre-placements talks (PPT) students should be present at least 15 minutes before the scheduled time at the venue & be seated. Delay in reporting will disqualify the student from recruitment process. Students should be punctual & once the HR People/Company representative enters the venue all doors will be closed and NO ENTRY to the students.</li>
+
+      		<li>Canvassing with the Company Personnel will disqualify the candidature of the student. If students face any difficulty please report to your T&P Secretary, Dept. Faculty advisor & T&P Officer.</li>
+      		
+      		<li>During the Campus Recruitment Programme, a student who opts for the written test should mandatorily appear for the GD/PI also, failing which he will be debarred from the Campus Recruitment Programme for all other subsequent companies. Casual approach of students will not be tolerated.</li>
+      		
+      		<li>For any queries/problems, the students should first discuss with their own departmental Faculty, and then deliberate the same with the T&P cell if necessary/ if not then to the Dean (S.A.) and finally to the DIRECTOR/If only the need arises. Students should strictly follow this.</li>
+      	</ol>
+	<div id = "view-more-btn2">
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#more2">View Pre-Placement & Summer Internship Rules</button>
+  	</div>
+  	<br><br>
+  	<div id="more2" class="collapse">
+		<strong><span class="glyphicon glyphicon-warning-sign"></span>  <u>Pre Placement offers:</u></strong><br>
+	      	<ol>
+			<li>All pre placement offers extended to any student have to be routed through the placement cell.</li>
+	    		
+	    		<li>Any student who has already received a PPO must inform the Placement office of the same as soon as possible.</li>
+
+			<li>If the student does not accept the offer, the company would be notified (before the first day of placements) of the same.</li>	
+
+			<li>For any queries, the students should contact T&P cell only. Students should not contact the industry people directly.</li>
+			<li>Any student found to have secured a pre placement offer and not informed the placement cell of the same will be debarred from the placement process and the company will be notified of the same.</li>
+		</ol>
+	     	<strong><span class="glyphicon glyphicon-warning-sign"></span>  <u>Summer Internships:</u></strong><br>
+		<ol>
+	  		<li>All companies which take students for summer internships will be asked in advance about any Pre Placement Offers they have extended. The student will be given a choice to accept or reject the offer till one day before the start of the placement season. In cases the student accepts it; the PPO would be treated equivalent to securing a job through the placement cell.</li>
+		</ol>
+		<br>
+	    	<p><u>If market situation and Job scenario necessitates a revision in the Placement Policy, it will be done in a manner so as to maximize the benefit to the student community as a whole</u></p>
+	 </div>
+</div>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#myCarousel" data-slide-to="1"></li>
+		    <li data-target="#myCarousel" data-slide-to="2"></li>
+		    <li data-target="#myCarousel" data-slide-to="3"></li>
+		    <li data-target="#myCarousel" data-slide-to="4"></li>
+	  </ol>
+
+	  <!-- Wrapper for slides -->
+	  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+			      <img src="slide_images/image1.jpg" alt="Image">
+			      <div class="carousel-caption">
+					<h3>COEP MAIN HALL</h3>
+			      </div>
+		    </div>
+
+		    <div class="item">
+			      <img src="slide_images/image2.jpg" alt="Chania">
+			      <div class="carousel-caption">
+					<h3>THE LEGACY CONTINUES...</h3>
+			      </div>
+		    </div>
+
+		    <div class="item">
+			      <img src="slide_images/image3.jpeg" alt="Flower">
+			      <div class="carousel-caption">
+					<h3>PLACEMENTS FOR EVERYONE</h3>
+			      </div>
+		    </div>
+
+		    <div class="item">
+			      <img src="slide_images/image4.jpg" alt="Flower">
+			      <div class="carousel-caption">
+					<h3>JOBS FOR EVERYONE</h3>
+			      </div>
+		    </div>
+		    
+		    <div class="item">
+			      <img src="slide_images/image5.jpg" alt="Flower">
+			      <div class="carousel-caption">
+					<h3>SEARCHING JOBS MADE EASY</h3>
+			      </div>
+		    </div>
+  	</div>
+
+  <!-- Left and right controls -->
+	 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	 	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	 </a>
+	 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	 </a>
+</div>
+
+<div class = "jumbotron" id = "logo">
+	<div class = "container-fluid text-center">
+		<h2 id = "placement-title-2" class = "slideanim">Some highest offerings come from...</h2><br>
+	</div>
+</div>
+  
+<div  id = "logo">
+	<div class="container-fluid text-center">    	
+		  <div class="row slideanim">
+			    <div class="col-sm-3">
+				      <h3>Microsoft</h3>
+				      <div class = "container" id = "company-logos">
+				      	<img src="company_logos/microsoft.jpg" class="img-responsive"  alt="Image">
+				      </div>
+			    </div>
+			    <div class="col-sm-3"> 
+				      <h3>Arcesium</h3>
+				       <div class = "container" id = "company-logos">
+				      	<img src="company_logos/arcesium.jpg" class="img-responsive"  alt="Image">
+				      </div>
+			    </div>
+			    <div class="col-sm-3"> 
+				      <h3>Morgan Stanley</h3>
+				      <div class = "container" id = "company-logos">
+				      	<img src="company_logos/MorganStanley.jpg" class="img-responsive"  alt="Image">
+				      </div>
+			    </div>
+			    <div class="col-sm-3">
+				      <h3>Citi Corp.</h3>
+				      <div class = "container" id = "company-logos">
+				      	<img src="company_logos/Citi.png" class="img-responsive" style="width:100%" alt="Image">
+				      </div>
+			    </div>
+		  </div>
+	</div><br>
+
+
+<div class="container-fluid bg-3 text-center">    
+  <div class="row slideanim">
+    <div class="col-sm-3">
+      <h3>D E Shaw</h3>
+      <div class = "container"id = "company-logos">
+      	<img src="company_logos/DEShaw.png" class="img-responsive" alt="Image">
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <h3>Amazon</h3>
+      <div class = "container"id = "company-logos">
+      	<img src="company_logos/amazon.jpg" class="img-responsive" alt="Image">
+      </div>
+    </div>
+    <div class="col-sm-3"> 
+      <h3>Goldman Sachs</h3>
+      <div class = "container"id = "company-logos">
+      	<img src="company_logos/GoldmanSachs.png" class="img-responsive" alt="Image">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <h3>VM ware</h3>
+      <div class = "container"id = "company-logos">
+      	<img src="company_logos/VMWare.png" class="img-responsive" alt="Image">
+      </div>
+    </div>
+  </div>
+</div><br><br>
+</div>
+
+<div class = "jumbotron" id = "contact-us">
+	<div class = "container-fluid text-center">
+		<h2 id = "placement-title-3" class = "slideanim">We are available for you at...</h2><br>
+	</div>
+	<div class = "slideanim">
+	<p id = "contact"><span class="glyphicon glyphicon-map-marker"></span> Office Address:<p>
+	<p id = "intermediate-font">'Training and Placement Cell' beside Main Building and Alumni Office</p>
+	<p id = "contact"><span class="glyphicon glyphicon-envelope"></span> Email Address:</p>
+	<p id = "intermediate-font">placement@coep.ac.in</p>
+	<p id = "contact"><span class="glyphicon glyphicon-phone"></span> Contact Number:</p>
+	<p id = "intermediate-font">020 - 2550 7022 / 7023</p>
+	</div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p id = "placement-footer">@ 2017 COEP. All Rights Reserved. Site Developed By COEP Webteam.</p>
+</footer>
+
+</body>
+</html>
+

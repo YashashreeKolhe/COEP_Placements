@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to COEP Placements</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet"> 
+  <script type="text/javascript" src="jquery-3.2.1.js"></script>
+  <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script type = "text/javascript">
+  	$(window).scroll(function() {
+		  $(".slideanim").each(function(){
+		    var pos = $(this).offset().top;
+
+		    var winTop = $(window).scrollTop();
+		    if (pos < winTop + 600) {
+		      $(this).addClass("slide");
+		    }
+		  });
+	});
+	function takeaction(name) {
+		document.getElementById('srch_term').value = name;
+		document.getElementById('submit').click();
+	}
+  </script>
+  <style>
+  @font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/dancing-script-v9-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Dancing Script Regular'), local('DancingScript-Regular'),
+       url('fonts/dancing-script-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/dancing-script-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/dancing-script-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/dancing-script-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/dancing-script-v9-latin-regular.svg#DancingScript') format('svg'); /* Legacy iOS */
+}
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      position: fixed;
+      width: 100%;
+      top: 0px;
+      z-index: 9999;
+    }
+    #navigation {
+    	background-color: #302e2e;
+    }
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #ffe3b7;
+      padding: 15px;
+      color: #333;
+    }
+    #placement-title {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	margin-top: 15px;
+    	padding-top: 30px;
+    }
+    #placement-title-2 {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	color: #d3cdcd;
+    }
+    #placement-title-3 {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	color: #333;
+    	margin: 0px;
+    }
+    #placement-logo {
+    	/*font-family: 'Caveat';
+    	font-size: 2em;*/
+    	font-weight: bold;
+    }
+    #placement-footer {
+    	/*font-family: 'Caveat';
+    	font-size: 1.5em;*/
+    	font-size: 14px;
+    	font-weight: bold;
+    	color:#333;
+    }
+    #header {
+    	background-color: #ffe3b7 ;
+    	margin-bottom: 0px;
+    	margin-top: 0px;
+    }
+    #main-navigation {
+    	font-weight: bold;
+    	font-size: 1.2em;
+    }
+    #company-logos 
+    {
+    	height:200px;
+	width:270px;
+    }
+    #company-logos img,.item img
+    {
+	max-width:100%; 
+	max-height:100%;
+	min-height: 100%;
+	min-width: 100%;
+	object-fit: fill;
+    }
+    
+    #logo {
+    	margin: 0px;
+    	padding: 0px;
+    	background-color: #302e2e/*#206d61*/;
+    }
+    #logo p {
+    	color: #d3cdcd;
+    	/*font-family: 'Caveat';
+    	font-size: 2em;*/
+    	font-size: 20px;
+    	padding: 10px 50px 10px 50px;
+    }
+    .progress {
+    	width:70%; 
+    	color: #302e2e; 
+    }
+    #statistics {
+    	padding-left: 30px;
+    }
+    #placement-incharge {
+    	font-family: "Dancing Script";
+    	font-weight: bold;
+    	color: #d3cdcd;
+    }
+    #contact-us {
+    	background-color:#ffe3b7;
+    	margin-bottom: 0px;
+    	margin-top: 0px;
+    }
+    #contact {
+    	/*font-family: 'Caveat';*/
+    	font-weight: bold;
+    	/*font-size: 2em;*/
+    	color:  #333;
+    	padding: 0px 50px 0px 50px;
+    }
+    #intermediate-font {
+    	color:  #333;
+    	/*font-family: 'Caveat';
+    	font-size: 2em;*/
+    	padding: 0px 50px 0px 50px;
+    }
+    #view-more-btn {
+    	float: right;
+    	padding-right: 100px;
+    	padding-bottom: 30px;
+    }
+    .item {
+    	height: 350px;
+    }
+    .slideanim {visibility:hidden;}
+	.slide {
+	    /* The name of the animation */
+	    animation-name: slide;
+	    -webkit-animation-name: slide;
+	    /* The duration of the animation */
+	    animation-duration: 1s;
+	    -webkit-animation-duration: 1s;
+	    /* Make the element visible */
+	    visibility: visible;
+	}
+
+	/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+	@keyframes slide {
+	    0% {
+		opacity: 0;
+		transform: translateY(70%);
+	    }
+	    100% {
+		opacity: 1;
+		transform: translateY(0%);
+	    }
+	}
+	@-webkit-keyframes slide {
+	    0% {
+		opacity: 0;
+		-webkit-transform: translateY(70%);
+	    }
+	    100% {
+		opacity: 1;
+		-webkit-transform: translateY(0%);
+	    }
+	}
+	#image_container {
+		margin: 5px;
+		border: 1px solid #333;
+		border-radius: 5px;
+		background-color: #333;
+	}
+	.row {
+		padding-top: 50px;
+		padding-bottom: 25px;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.img-responsive {
+		padding-bottom: 50px;
+	}
+	p {
+		text-align: center;
+		/*font-family: 'Caveat';*/
+		font-weight: bold;
+		font-size: 20px;
+		color: #333;
+	}
+	.panel {
+   		border: 1px solid #ee6e73;
+   		border-radius:10;
+    		transition: box-shadow 0.5s;
+    		height: 350px;
+  	}
+
+  	.panel:hover {
+    		box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+   	}
+
+  	.panel-heading {
+    		color: #333 !important;
+    		background-color: #ffe3b7 !important;
+    		padding: 5px;
+		border-bottom: 1px solid transparent;
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+  	}
+  	#company-logos {
+  		padding: 25px;
+    		height:300px;
+		width:280px;
+    	}
+    	#company-logos img {
+		max-width:100%; 
+		max-height:100%;
+		min-height: 100%;
+		min-width: 100%;
+		object-fit: fill;
+    	}
+    	#image_gallery {
+    		background-color: #fff;
+    		margin-top: 2px;
+    		margin-bottom: 2px;
+    	}
+    	#placement-title {
+    		font-family: "Dancing Script";
+    		font-weight: bold;
+    		margin: 0px;
+    		padding-bottom: 20px;
+    	}
+    	#header {
+    		background-color: #ffe3b7 ;
+    		margin-bottom: 0px;
+    		margin-top: 0px;
+    	}
+    	#srch-term {
+    		width: 350px;
+    	}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar">
+
+<nav class="navbar navbar-inverse" id = "navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Placement Cell</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" id = "main-navigation">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/#rules_and_regulations">Rules and Regulations</a></li>
+        <li class="active"><a href="/company_list">Company Profile</a></li>
+        <li><a href="/#contact-us">Contact us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron" id = "header">
+  <div class="container text-center">
+    <h1 id = "placement-title">Companies that visit us...</h1>
+    <form class="navbar-form" role="search" method="get" action="/company_profile">
+    	<!--<div class="input-group add-on">-->
+		<input class="form-control" placeholder="Search" name="srch" id="srch_term" type="text" /><input type="submit" value="Search" id="submit" style="height:35px; background-color: #333; color: white"/>
+	<!--</div>-->
+  </form>      
+  </div>
+</div>
+
+<div class="container-fluid" id="image_gallery">
+	<div class="row">
+	<% posts.forEach((post) => { %>
+		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p><%=post.name%></p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<div class="container" id="company-logos">
+	   					<img src='<%=post.logo_link%>' class="img-responsive" alt="Image" onclick = "takeaction('<%=post.name%>')">
+	   				</div>
+	   			</div>
+	   		</div>
+    		</div>
+    	<% }) %>
+    	</div>
+</div>
+    		
+    		<!--<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Arcesium</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<div class="container" id="company-logos">
+	   					<a href="/company_profile"><img src="company_logos/arcesium.jpg" class="img-responsive" alt="Image"></a>
+	   				</div>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Microsoft</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<div class="container" id="company-logos">
+	   					<a href="/company_profile"><img src="company_logos/microsoft.jpg" class="img-responsive" alt="Image"></a>
+	   				</div>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>MorganStanley</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<div class="container" id="company-logos">
+	   					<a href="/company_profile"><img src="company_logos/MorganStanley.jpg" class="img-responsive" alt="Image"></a>
+	   				</div>
+	   			</div>
+	   		</div>
+    		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Amazon</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Arcesium</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Microsoft</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>MorganStanley</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Amazon</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Arcesium</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Microsoft</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>MorganStanley</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Amazon</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Arcesium</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>Microsoft</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+    		
+    		<div class="col-sm-3">
+			<div class = "panel panel-default text-center">
+	    			<div class = "panel-heading">
+	    				<p>MorganStanley</p>
+	  			</div>
+	   			<div class = "panel-body">
+	   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+	   			</div>
+	   		</div>
+    		</div>
+	</div>
+	
+	<div id = "view-more-btn">
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#more">View All</button>
+  	</div>
+  	<br>
+  	<br>
+  	<div id="more" class="collapse">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class = "panel panel-default text-center">
+		    			<div class = "panel-heading">
+		    				<p>Amazon</p>
+		  			</div>
+		   			<div class = "panel-body">
+		   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+		   			</div>
+		   		</div>
+	    		</div>
+	    		
+	    		<div class="col-sm-3">
+				<div class = "panel panel-default text-center">
+		    			<div class = "panel-heading">
+		    				<p>Arcesium</p>
+		  			</div>
+		   			<div class = "panel-body">
+		   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+		   			</div>
+		   		</div>
+	    		</div>
+	    		
+	    		<div class="col-sm-3">
+				<div class = "panel panel-default text-center">
+		    			<div class = "panel-heading">
+		    				<p>Microsoft</p>
+		  			</div>
+		   			<div class = "panel-body">
+		   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+		   			</div>
+		   		</div>
+	    		</div>
+	    		
+	    		<div class="col-sm-3">
+				<div class = "panel panel-default text-center">
+		    			<div class = "panel-heading">
+		    				<p>MorganStanley</p>
+		  			</div>
+		   			<div class = "panel-body">
+		   				<a href="/company_profile"><img src="company_logos/DEShaw.png" class="img-responsive" alt="Image" width=280px height=280px></a>
+		   			</div>
+		   		</div>
+	    		</div>
+		</div>
+	</div>
+	
+</div>-->
+
+<footer class="container-fluid text-center">
+<div class="container">
+  <p id = "placement-footer">@ 2017 COEP. All Rights Reserved. Site Developed By COEP Webteam.</p>
+</div>
+</footer>
+
+</body>
+</html>
+
